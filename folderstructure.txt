@@ -1,0 +1,68 @@
+orders_inventory_service/
+├── app/
+│   ├── __init__.py
+│   ├── main.py                        # FastAPI app instance & router includes
+│   ├── config.py                      # App settings & environment variables
+│
+│   ├── db/
+│   │   ├── __init__.py
+│   │   ├── session.py                 # Database session, engine setup
+│   │   └── base.py                    # Declarative Base for SQLAlchemy models
+│
+│   ├── models/
+│   │   ├── __init__.py
+│   │   ├── product.py                 # Product model
+│   │   ├── order.py                   # Order model
+│   │   ├── user.py                    # User model (for developers)
+│   │   └── api_key.py                 # APIKey model (linked to users)
+│
+│   ├── schemas/
+│   │   ├── __init__.py
+│   │   ├── product.py                 # Pydantic schemas for Product
+│   │   ├── order.py                   # Pydantic schemas for Order
+│   │   ├── user.py                    # User schemas (optional login/registration)
+│   │   └── api_key.py                 # Schema for API key response
+│
+│   ├── crud/
+│   │   ├── __init__.py
+│   │   ├── product.py                 # Product DB operations
+│   │   ├── order.py                   # Order DB operations
+│   │   └── api_key.py                 # API key DB operations
+│
+│   ├── services/
+│   │   ├── __init__.py
+│   │   ├── payment.py                 # Payment webhook handling
+│   │   └── api_key_service.py         # Generate/revoke API keys
+│
+│   ├── api/
+│   │   ├── __init__.py
+│   │   ├── deps.py                    # Common dependencies (DB, auth, etc.)
+│   │   ├── product.py                 # Product endpoints
+│   │   ├── order.py                   # Order endpoints
+│   │   └── developer.py               # Routes for devs to generate/manage API keys
+│
+├── middleware/
+│   ├── __init__.py
+│   ├── api_key.py                    # Middleware for dynamic API key auth (from DB)
+│   ├── jwt_auth.py                   # JWT auth (optional, for user login)
+│   ├── cors.py                       # CORS settings
+│   └── security.py                   # Security headers middleware
+│
+├── tests/
+│   ├── __init__.py
+│   ├── conftest.py                   # Pytest fixtures
+│   ├── test_product.py               # Product tests
+│   ├── test_order.py                 # Order tests
+│   ├── test_payment.py               # Webhook tests
+│   └── test_api_key.py               # Tests for API key generation and auth
+│
+├── alembic/                          # Alembic migration folder
+│   ├── versions/                     # Auto-generated migration scripts
+│   └── env.py                        # Alembic environment config
+│
+├── .env                              # Environment variables
+├── requirements.txt                  # Production dependencies
+├── dev-requirements.txt              # Dev/test dependencies
+├── Dockerfile                        # Container for deployment (Render, etc.)
+├── render.yaml                       # Deployment config for Render.com
+└── README.md                         # Project documentation
