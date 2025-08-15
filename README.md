@@ -100,19 +100,19 @@ curl -H "X-API-Key: YOUR_API_KEY" http://127.0.0.1:8000/products/
 ## 📌 Example Endpoints
 
 | Method | Endpoint              | Description                | Auth Required |
-|--------|-----------------------|----------------------------|--------------|
-| POST   | `/products/`           | Create a new product       | ✅            |
-| GET    | `/products/`           | List all products          | ❌            |
-| POST   | `/orders/`             | Create a new order         | ✅            |
-| GET    | `/orders/`             | List all orders            | ✅            |
-| POST   | `/apikeys/`            | Generate an API key        | ❌            |
+|--------|-----------------------|----------------------------|-------------- |
+| POST   | `/products/`           | Create a new product       | ✅           |
+| GET    | `/products/`           | List all products          | ✅           |
+| POST   | `/orders/`             | Create a new order         | ✅           |
+| GET    | `/orders/`             | List all orders            | ✅           |
+| POST   | `/apikeys/`            | Generate an API key        | ❌           |
 
 ---
 
 ## ⚡ Rate Limiting
 
-- Default: `X` requests/minute per API key  
-- Configurable in the `dependencies.py` file.
+- Default: `100` requests/minute per API key  
+- Configurable in the `rate_limiter.py` file.
 
 ---
 
